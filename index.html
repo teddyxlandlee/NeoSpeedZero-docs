@@ -254,14 +254,14 @@
   <!-- ↑ 此为 Docsify FontAwesome 拓展组件 ↑ -->
 
   <script>
-  (async function () {
+  document.addEventListener('DOMContentLoaded', async function () {
   	'use strict';
   	const version = await fetch('/version.txt');
   	let versionString = await version.text();
   	versionString = versionString.trim();
 
   	document.getElementById('x-version-string').innerText = `Last Updated: ${versionString}`;
-  })();
+  });
   </script>
   <!-- ↑ User defined: Last Updated -->
 </body>
