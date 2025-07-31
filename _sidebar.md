@@ -9,3 +9,5 @@
     * [Preface](en/README)
     * [Speedrun Goals](en/goal)
     * [Difficulty Settings](en/difficulty)
+
+<div id='x-version-string' style='color:dimgray;font-size:.8em'></div>

@@ -211,6 +211,7 @@
   <!-- ↑ 此为 Docsify 代码折叠组件 ↑ -->
   <script src="//fastly.jsdelivr.net/npm/docsify-plugin-flexible-alerts"></script>
   <!-- ↑ 此为 Docsify 自定义提示框组件 ↑ -->
+  <script src='//fastly.jsdelivr.net/npm/prismjs@1.22.0/components/prism-json.min.js'></script>
   <script src="//fastly.jsdelivr.net/npm/prismjs@1/components/prism-yaml.min.js"></script>
   <script src="//fastly.jsdelivr.net/npm/prismjs@1/components/prism-kotlin.min.js"></script>
   <script src="//fastly.jsdelivr.net/npm/prismjs@1/components/prism-xml-doc.min.js"></script>
@@ -251,5 +252,17 @@
   <!-- ↑ 此为 Docsify 回到顶部拓展组件 ↑ -->
   <script src="https://fastly.jsdelivr.net/gh/zignis/docsify-fa/script.min.js"></script>
   <!-- ↑ 此为 Docsify FontAwesome 拓展组件 ↑ -->
+
+  <script>
+  (async function () {
+  	'use strict';
+  	const version = await fetch('/version.txt');
+  	let versionString = await version.text();
+  	versionString = versionString.trim();
+
+  	document.getElementById('x-version-string').innerText = `Last Updated: ${versionString}`;
+  })();
+  </script>
+  <!-- ↑ User defined: Last Updated -->
 </body>
 </html>
