@@ -11,3 +11,15 @@
     * [Difficulty Settings](en/difficulty)
 
 <div id='x-version-string' style='color:dimgray;font-size:.8em'></div>
+
+<script>
+(async function () {
+  'use strict';
+  const version = await fetch('/version.txt');
+  let versionString = await version.text();
+  versionString = versionString.trim();
+
+  document.getElementById('x-version-string').innerText = `Last Updated: ${versionString}`;
+})();
+</script>
+<!-- ↑ User defined: Last Updated -->

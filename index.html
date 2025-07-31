@@ -252,17 +252,5 @@
   <!-- ↑ 此为 Docsify 回到顶部拓展组件 ↑ -->
   <script src="https://fastly.jsdelivr.net/gh/zignis/docsify-fa/script.min.js"></script>
   <!-- ↑ 此为 Docsify FontAwesome 拓展组件 ↑ -->
-
-  <script>
-  document.addEventListener('DOMContentLoaded', async function () {
-  	'use strict';
-  	const version = await fetch('/version.txt');
-  	let versionString = await version.text();
-  	versionString = versionString.trim();
-
-  	document.getElementById('x-version-string').innerText = `Last Updated: ${versionString}`;
-  });
-  </script>
-  <!-- ↑ User defined: Last Updated -->
 </body>
 </html>
