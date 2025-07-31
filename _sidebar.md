@@ -1,6 +1,9 @@
 <!-- _sidebar.md -->
 
 * [Preface 前言](README.md)
-* 在这里填入你的目录
-    * 支持二级目录！
-    * 可以自行展开！
+* 中文
+    * [速通目标](zh/goal)
+    * [难度设置](zh/difficulty)
+* English
+    * [Speedrun Goals](en/goal)
+    * [Difficulty Settings](en/difficulty)
