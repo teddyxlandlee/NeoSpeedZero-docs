@@ -1,1 +1,3 @@
-This is the docs for [NeoSpeedZero](https://modrinth.com/mod/neospeedzero).
+# NeoSpeedZero
+
+🌐Select language: [中文](zh) | [English](en)
