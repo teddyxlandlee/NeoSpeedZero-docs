@@ -147,10 +147,84 @@
 2. **图标优先级**：若同一触发条件中同时配置了 `icon` 和系统默认图标，按 `IconState` 模式决定最终显示（默认 `covers_gen`）。
 3. **物品标签支持**：使用 `#<tag_id>` 形式可匹配标签下的所有物品（如 `#minecraft:tools` 匹配所有工具）。
 4. **文本组件**：`display` 字段支持 Minecraft 所有文本格式（如颜色代码 `\u00A7`、翻译键 `{translate:...}` 等）。
+5. **物品重复风险**：如果在`predicates`中同时定义了`acacia_log` 和`#logs_that_burn`，相当于`acacia_log`被定义了两次，因为该物品被包含在`#logs_that_burn`中。重复定义可能会引发问题，因此如果你只是想定义一个简单的物品列表，推荐你创建一个物品标签，然后将这个标签加进`predicates`中。
 
 ---
 
 ## 示例配置
+
+### 基础
+
+通常情况下，速通目标并不复杂，只需要玩家收集指定物品，即可获得胜利。
+
+以模组内置的`speedabc:a`为例：
+
+```json
+{
+  "display": {
+    "translate": "speedrun.alphabet.speedrun_goals.speedabc.a",
+    "fallback": "SpeedABC: A"
+  },
+  "icon": {
+    "id": "apple"
+  },
+  "predicates": [
+    "#speedabc:a"
+  ]
+}
+```
+
+其中，从 Minecraft 1.21.7 生成的 `#speedabc:a` 标签如下：
+
+```json
+{
+  "replace": false,
+  "values": [
+    "minecraft:acacia_boat",
+    "minecraft:acacia_button",
+    "minecraft:acacia_chest_boat",
+    "minecraft:acacia_door",
+    "minecraft:acacia_fence",
+    "minecraft:acacia_fence_gate",
+    "minecraft:acacia_hanging_sign",
+    "minecraft:acacia_leaves",
+    "minecraft:acacia_log",
+    "minecraft:acacia_planks",
+    "minecraft:acacia_pressure_plate",
+    "minecraft:acacia_sapling",
+    "minecraft:acacia_sign",
+    "minecraft:acacia_slab",
+    "minecraft:acacia_stairs",
+    "minecraft:acacia_trapdoor",
+    "minecraft:acacia_wood",
+    "minecraft:activator_rail",
+    "minecraft:allium",
+    "minecraft:amethyst_block",
+    "minecraft:amethyst_cluster",
+    "minecraft:amethyst_shard",
+    "minecraft:ancient_debris",
+    "minecraft:andesite",
+    "minecraft:andesite_slab",
+    "minecraft:andesite_stairs",
+    "minecraft:andesite_wall",
+    "minecraft:angler_pottery_sherd",
+    "minecraft:anvil",
+    "minecraft:apple",
+    "minecraft:archer_pottery_sherd",
+    "minecraft:armadillo_scute",
+    "minecraft:armor_stand",
+    "minecraft:arms_up_pottery_sherd",
+    "minecraft:arrow",
+    "minecraft:axolotl_bucket",
+    "minecraft:azalea",
+    "minecraft:azalea_leaves",
+    "minecraft:azure_bluet"
+  ]
+}
+```
+
+### 进阶
+
 以下是一个完整的速通目标配置示例，要求玩家完成「解放末地」进度，并收集任意一个带效率2~3附魔的钻石镐或下界合金镐：
 
 ```json

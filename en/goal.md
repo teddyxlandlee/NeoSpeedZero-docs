@@ -147,10 +147,84 @@ Requires the player to collect **any one item that meets specified predicates** 
 2. **Icon Priority**: If both a custom `icon` and the system default icon are configured for the same trigger condition, the final display is determined by the `IconState` mode (defaults to `covers_gen`).
 3. **Item Tag Support**: Using `#<tag_id>` matches all items under the tag (e.g., `#minecraft:tools` matches all tools).
 4. **Text Components**: The `display` field supports all Minecraft text formats (e.g., color codes `\u00A7`, translation keys `{translate:...}`, etc.).
+5. **Risk of Duplication**: If you define both `acacia_log` and `#logs_that_burn` together in `predicates`, `acacia_log` may be defined twice, which may cause challenge duplication issues. So if you want to define a simple item list, it is recommended that you maintain an item tag, and put the tag in `predicates`.
 
 ---
 
 ## Example Configuration
+
+### Simple
+
+Generally, speedrun goals are not complicated, which only require the player to collect certain items and they win.
+
+Take `speedabc:a` as an example:
+
+```json
+{
+  "display": {
+    "translate": "speedrun.alphabet.speedrun_goals.speedabc.a",
+    "fallback": "SpeedABC: A"
+  },
+  "icon": {
+    "id": "apple"
+  },
+  "predicates": [
+    "#speedabc:a"
+  ]
+}
+```
+
+where `#speedabc:a`, generated from Minecraft 1.21.7, is defined as follows:
+
+```json
+{
+  "replace": false,
+  "values": [
+    "minecraft:acacia_boat",
+    "minecraft:acacia_button",
+    "minecraft:acacia_chest_boat",
+    "minecraft:acacia_door",
+    "minecraft:acacia_fence",
+    "minecraft:acacia_fence_gate",
+    "minecraft:acacia_hanging_sign",
+    "minecraft:acacia_leaves",
+    "minecraft:acacia_log",
+    "minecraft:acacia_planks",
+    "minecraft:acacia_pressure_plate",
+    "minecraft:acacia_sapling",
+    "minecraft:acacia_sign",
+    "minecraft:acacia_slab",
+    "minecraft:acacia_stairs",
+    "minecraft:acacia_trapdoor",
+    "minecraft:acacia_wood",
+    "minecraft:activator_rail",
+    "minecraft:allium",
+    "minecraft:amethyst_block",
+    "minecraft:amethyst_cluster",
+    "minecraft:amethyst_shard",
+    "minecraft:ancient_debris",
+    "minecraft:andesite",
+    "minecraft:andesite_slab",
+    "minecraft:andesite_stairs",
+    "minecraft:andesite_wall",
+    "minecraft:angler_pottery_sherd",
+    "minecraft:anvil",
+    "minecraft:apple",
+    "minecraft:archer_pottery_sherd",
+    "minecraft:armadillo_scute",
+    "minecraft:armor_stand",
+    "minecraft:arms_up_pottery_sherd",
+    "minecraft:arrow",
+    "minecraft:axolotl_bucket",
+    "minecraft:azalea",
+    "minecraft:azalea_leaves",
+    "minecraft:azure_bluet"
+  ]
+}
+```
+
+### Advanced
+
 Below is a complete speedrun goal configuration example, requiring the player to complete the "Free the End" advancement and collect either a diamond pickaxe or netherite pickaxe with Efficiency II-III enchantments:
 
 ```json
